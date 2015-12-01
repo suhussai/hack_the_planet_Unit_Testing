@@ -66,9 +66,14 @@ class baseTesting(unittest.TestCase):
         self.assertFalse(None, self.hero)
 
     def testJump(self):
-        self.hero.jump(800);
-        self.assertFalse(self.hero.can("jump"))
+        self.hero.jump(800)
         self.assertTrue(self.hero._body.velocity.y == -800)
+
+    def testForDoubleJump(self):
+        self.hero.jump(800)
+        self.assertFalse(self.hero.can("jump")) # check for  double jump
+        self.assertTrue(self.hero._body.velocity.y == -800)
+
 
     def testWalkRight(self):
         # # Animation stuff:
